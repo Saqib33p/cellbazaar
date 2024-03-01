@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "142856986151",
+    "project_id": "cellbazaar-d1d1f",
+    "storage_bucket": "cellbazaar-d1d1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142856986151:android:268e0ec631f1179fb37802",
+        "android_client_info": {
+          "package_name": "com.example.cellbazar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCteqZGmCUOEeyvsVVoxiGZ4Vu1eQjkJ5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
