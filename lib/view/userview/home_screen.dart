@@ -1,11 +1,16 @@
 import 'package:cellbazar/utils/appconstants.dart';
 import 'package:cellbazar/view/userview/all_flash_sale_screen.dart';
 import 'package:cellbazar/view/userview/all_product_screen.dart';
+import 'package:cellbazar/view/userview/detailed_screen.dart';
+
+import 'package:cellbazar/view/userview/single_categories_screen.dart';
 import 'package:cellbazar/widgets/banner_widget.dart';
-import 'package:cellbazar/widgets/heading_widget.dart';
+import 'package:cellbazar/widgets/components/heading_widget.dart';
 import 'package:cellbazar/widgets/image_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'Cart_Screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,7 +22,9 @@ class HomeScreen extends StatelessWidget {
         iconTheme: IconThemeData(color: AppConstants.appMainColor),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.to(() => CartScreen());
+              },
               icon: Icon(
                 Icons.shopping_cart,
               ))
@@ -43,19 +50,24 @@ class HomeScreen extends StatelessWidget {
                   itemCount: 5,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                            radius: 30,
-                            child: Icon(Icons.phone_android),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text('Phones')
-                        ],
+                    return GestureDetector(
+                      onTap: () {
+                        Get.to(() => SingleCategoryScreen());
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        child: Column(
+                          children: [
+                            CircleAvatar(
+                              radius: 30,
+                              child: Icon(Icons.phone_android),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text('Phones')
+                          ],
+                        ),
                       ),
                     );
                   },
@@ -76,7 +88,12 @@ class HomeScreen extends StatelessWidget {
                   itemCount: 5,
                   itemBuilder: (context, index) {
                     return ImageCardWidget(
-                      ontap: () {},
+                      ontap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailScreen()));
+                      },
                       itemname: 'Gionee Handfree',
                       itemprice: '500',
                       imageUrl: 'assets/images/beme.webp',
@@ -100,7 +117,12 @@ class HomeScreen extends StatelessWidget {
                   itemCount: 5,
                   itemBuilder: (context, index) {
                     return ImageCardWidget(
-                      ontap: () {},
+                      ontap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailScreen()));
+                      },
                       itemname: 'Gionee Handfree',
                       itemprice: '500',
                       imageUrl: 'assets/images/iphone12.png',

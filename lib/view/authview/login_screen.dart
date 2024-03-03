@@ -1,8 +1,8 @@
 import 'package:cellbazar/view/authview/forgot_password_screen.dart';
 import 'package:cellbazar/view/authview/signup_screen.dart';
 import 'package:cellbazar/view/userview/main_screen.dart';
-import 'package:cellbazar/widgets/mainbutton_widget.dart';
-import 'package:cellbazar/widgets/textformfield_widget.dart';
+import 'package:cellbazar/widgets/components/mainbutton_widget.dart';
+import 'package:cellbazar/widgets/components/textformfield_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

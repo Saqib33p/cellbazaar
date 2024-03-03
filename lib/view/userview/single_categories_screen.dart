@@ -1,16 +1,17 @@
 import 'package:cellbazar/widgets/components/backbutton_widget.dart';
-import 'package:flutter/material.dart';
-import '../../widgets/image_card_widget_gridview.dart';
-import 'detailed_screen.dart';
 
-class AllFlashSaleScreen extends StatefulWidget {
-  const AllFlashSaleScreen({super.key});
+import 'package:flutter/material.dart';
+
+import '../../widgets/image_card_widget_gridview.dart';
+
+class SingleCategoryScreen extends StatefulWidget {
+  const SingleCategoryScreen({super.key});
 
   @override
-  State<AllFlashSaleScreen> createState() => _AllFlashSaleScreenState();
+  State<SingleCategoryScreen> createState() => _SingleCategoryScreenState();
 }
 
-class _AllFlashSaleScreenState extends State<AllFlashSaleScreen> {
+class _SingleCategoryScreenState extends State<SingleCategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +24,7 @@ class _AllFlashSaleScreenState extends State<AllFlashSaleScreen> {
           Container(
             margin: EdgeInsets.only(right: 12),
             child: Text(
-              'Flash sale',
+              'Handfrees',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           )
@@ -34,10 +35,7 @@ class _AllFlashSaleScreenState extends State<AllFlashSaleScreen> {
             SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (context, index) {
           return ImageCardGridViewWidget(
-              ontap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => DetailScreen()));
-              },
+              ontap: () {},
               itemname: 'Gionee Handfree',
               itemprice: '600',
               imageUrl: 'assets/images/gionee.png');

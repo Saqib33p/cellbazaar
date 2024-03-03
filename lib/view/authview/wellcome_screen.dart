@@ -1,7 +1,7 @@
 import 'package:cellbazar/utils/appconstants.dart';
 import 'package:cellbazar/view/authview/login_screen.dart';
 import 'package:cellbazar/view/authview/signup_screen.dart';
-import 'package:cellbazar/widgets/wellbutton_widget.dart';
+import 'package:cellbazar/widgets/components/wellbutton_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';

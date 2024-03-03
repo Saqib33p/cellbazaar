@@ -1,8 +1,9 @@
-import 'package:cellbazar/widgets/backbutton_widget.dart';
+import 'package:cellbazar/widgets/components/backbutton_widget.dart';
 
 import 'package:flutter/material.dart';
 
 import '../../widgets/image_card_widget_gridview.dart';
+import 'detailed_screen.dart';
 
 class AllProductScreen extends StatefulWidget {
   const AllProductScreen({super.key});
@@ -35,7 +36,10 @@ class _AllProductScreenState extends State<AllProductScreen> {
             SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (context, index) {
           return ImageCardGridViewWidget(
-              ontap: () {},
+              ontap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => DetailScreen()));
+              },
               itemname: 'Gionee Handfree',
               itemprice: '600',
               imageUrl: 'assets/images/gionee.png');

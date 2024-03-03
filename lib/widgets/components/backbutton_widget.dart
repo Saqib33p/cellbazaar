@@ -16,7 +16,7 @@ class BackButtonWidget extends StatelessWidget {
             color: AppConstants.appMainColor,
             borderRadius: BorderRadius.circular(40)),
         child: TextButton.icon(
-            onPressed: () {},
+            onPressed: ontap,
             icon: Icon(
               Icons.arrow_back_ios_rounded,
               color: AppConstants.textColorWhite,

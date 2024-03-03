@@ -4,8 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import '../../utils/appconstants.dart';
-import '../../widgets/mainbutton_widget.dart';
-import '../../widgets/textformfield_widget.dart';
+import '../../widgets/components/mainbutton_widget.dart';
+import '../../widgets/components/textformfield_widget.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

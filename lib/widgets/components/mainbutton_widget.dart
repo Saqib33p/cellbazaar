@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../utils/appconstants.dart';
+import '../../utils/appconstants.dart';
 
 class MainButtonWidget extends StatelessWidget {
   final String title;
