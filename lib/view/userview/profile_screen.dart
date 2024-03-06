@@ -1,6 +1,10 @@
 import 'package:cellbazar/utils/appconstants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
+import '../authview/wellcome_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -124,7 +128,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               Container(
-                height: Get.height / 3.6,
+                height: Get.height / 3,
                 child: Column(
                   children: [
                     ListTile(
@@ -156,6 +160,24 @@ class ProfileScreen extends StatelessWidget {
                           size: 35,
                         ),
                         title: Text('Privacy and policy'),
+                        trailing: Icon(
+                          Icons.navigate_next_outlined,
+                          color: AppConstants.appMainColor,
+                        )),
+                    ListTile(
+                        onTap: () async {
+                          GoogleSignIn googleSignIn = GoogleSignIn();
+                          FirebaseAuth _auth = FirebaseAuth.instance;
+                          await _auth.signOut();
+                          await googleSignIn.signOut();
+                          Get.offAll(() => WellcomeScreen());
+                        },
+                        leading: Icon(
+                          Icons.logout,
+                          color: AppConstants.appMainColor,
+                          size: 35,
+                        ),
+                        title: Text('Logout'),
                         trailing: Icon(
                           Icons.navigate_next_outlined,
                           color: AppConstants.appMainColor,

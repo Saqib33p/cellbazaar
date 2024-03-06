@@ -5,8 +5,18 @@ import 'package:get/get.dart';
 class TextFormFieldWidget extends StatelessWidget {
   final String title;
   final String hinttext;
+  final TextEditingController controller;
+  final bool obsecure;
+  final bool suffix;
+  final TextInputType keyboardType;
   const TextFormFieldWidget(
-      {super.key, required this.title, required this.hinttext});
+      {super.key,
+      required this.keyboardType,
+      required this.title,
+      required this.hinttext,
+      required this.controller,
+      required this.obsecure,
+      required this.suffix});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +34,8 @@ class TextFormFieldWidget extends StatelessWidget {
             height: Get.height / 100,
           ),
           TextFormField(
+            controller: controller,
+            keyboardType: keyboardType,
             decoration: InputDecoration(
               hintStyle:
                   TextStyle(color: AppConstants.textColorWhite.withOpacity(.3)),
@@ -37,6 +49,13 @@ class TextFormFieldWidget extends StatelessWidget {
               fillColor: Colors.grey,
               filled: true,
             ),
+            validator: (value) {
+              if (value!.isEmpty) {
+                return 'Please enter ' + title.toString();
+              } else {
+                return null;
+              }
+            },
           )
         ],
       ),

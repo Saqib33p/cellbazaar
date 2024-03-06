@@ -1,12 +1,11 @@
 import 'package:cellbazar/utils/appconstants.dart';
 import 'package:cellbazar/view/userview/all_flash_sale_screen.dart';
 import 'package:cellbazar/view/userview/all_product_screen.dart';
-import 'package:cellbazar/view/userview/detailed_screen.dart';
-
-import 'package:cellbazar/view/userview/single_categories_screen.dart';
+import 'package:cellbazar/widgets/all_product_widget.dart';
 import 'package:cellbazar/widgets/banner_widget.dart';
+import 'package:cellbazar/widgets/category_widget.dart';
 import 'package:cellbazar/widgets/components/heading_widget.dart';
-import 'package:cellbazar/widgets/image_card_widget.dart';
+import 'package:cellbazar/widgets/flash_sale_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -42,37 +41,7 @@ class HomeScreen extends StatelessWidget {
                 height: 10,
               ),
 
-              Container(
-                height: Get.height / 8,
-                width: double.infinity,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: 5,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Get.to(() => SingleCategoryScreen());
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: Column(
-                          children: [
-                            CircleAvatar(
-                              radius: 30,
-                              child: Icon(Icons.phone_android),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text('Phones')
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
+              CategoryWidget(),
               //flash sale heading
               HeadingWidget(
                   ontap: () {
@@ -80,27 +49,9 @@ class HomeScreen extends StatelessWidget {
                   },
                   title: 'Flash Sales'),
 //products
-              Container(
-                height: Get.height / 5,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: 5,
-                  itemBuilder: (context, index) {
-                    return ImageCardWidget(
-                      ontap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => DetailScreen()));
-                      },
-                      itemname: 'Gionee Handfree',
-                      itemprice: '500',
-                      imageUrl: 'assets/images/beme.webp',
-                    );
-                  },
-                ),
-              ),
+
+              FlashSaleWidget(),
+
               HeadingWidget(
                   ontap: () {
                     Navigator.push(
@@ -109,27 +60,7 @@ class HomeScreen extends StatelessWidget {
                             builder: (context) => AllProductScreen()));
                   },
                   title: 'All products'),
-              Container(
-                height: Get.height / 5,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: 5,
-                  itemBuilder: (context, index) {
-                    return ImageCardWidget(
-                      ontap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => DetailScreen()));
-                      },
-                      itemname: 'Gionee Handfree',
-                      itemprice: '500',
-                      imageUrl: 'assets/images/iphone12.png',
-                    );
-                  },
-                ),
-              ),
+              AllProductWidget()
             ],
           ),
         ),

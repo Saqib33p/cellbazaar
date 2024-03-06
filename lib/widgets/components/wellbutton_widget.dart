@@ -7,11 +7,13 @@ class WellButtonWidget extends StatelessWidget {
   final String title;
   final Image icon;
   final VoidCallback ontap;
+  final Color color;
   const WellButtonWidget({
     super.key,
     required this.ontap,
     required this.icon,
     required this.title,
+    required this.color,
   });
 
   @override
@@ -24,8 +26,7 @@ class WellButtonWidget extends StatelessWidget {
           height: Get.height / 13,
           width: Get.width / 1.3,
           decoration: BoxDecoration(
-              color: AppConstants.appMainColor,
-              borderRadius: BorderRadius.circular(50)),
+              color: color, borderRadius: BorderRadius.circular(50)),
           child: Center(
               child: TextButton.icon(
                   onPressed: ontap,

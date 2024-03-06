@@ -2,6 +2,7 @@ import 'package:cellbazar/firebase_options.dart';
 import 'package:cellbazar/view/authview/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 void main() async {
@@ -19,12 +20,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'CellBazar',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: SplashScreen());
+      debugShowCheckedModeBanner: false,
+      title: 'CellBazar',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: SplashScreen(),
+      builder: EasyLoading.init(),
+    );
   }
 }

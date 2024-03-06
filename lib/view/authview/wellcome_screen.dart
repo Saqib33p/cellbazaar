@@ -1,10 +1,11 @@
 import 'package:cellbazar/utils/appconstants.dart';
 import 'package:cellbazar/view/authview/login_screen.dart';
-import 'package:cellbazar/view/authview/signup_screen.dart';
 import 'package:cellbazar/widgets/components/wellbutton_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+
+import '../../controller/google_sign_in_controller.dart';
 
 class WellcomeScreen extends StatefulWidget {
   const WellcomeScreen({super.key});
@@ -14,6 +15,10 @@ class WellcomeScreen extends StatefulWidget {
 }
 
 class _WellcomeScreenState extends State<WellcomeScreen> {
+  //we call google sign in controller here    step1
+  final GoogleSignInController googleSignInController =
+      Get.put(GoogleSignInController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,16 +47,18 @@ class _WellcomeScreenState extends State<WellcomeScreen> {
             ),
             WellButtonWidget(
                 ontap: () {
-                  Get.to(() => SignUpScreen());
+                  googleSignInController.signInWithGoogle();
                 },
+                color: AppConstants.appMainColor,
                 icon: Image.asset('assets/images/google_icon.png'),
                 title: 'Sign in with google'),
             WellButtonWidget(
                 ontap: () {
                   Get.to(() => LoginScreen());
                 },
+                color: AppConstants.appMainColor,
                 icon: Image.asset('assets/images/email_icon.png'),
-                title: 'Sign in with email')
+                title: 'Sign in with email'),
           ],
         ),
       ),
